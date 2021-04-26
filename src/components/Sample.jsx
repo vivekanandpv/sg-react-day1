@@ -7,6 +7,8 @@ const Sample = (props) => {
         I am Sample component {props.message} : Counter {props.counter}
       </h3>
       <p>City: {props.city}</p>
+      <hr />
+      <button onClick={() => props.inc(3)}>Increment</button>
     </>
   );
 };

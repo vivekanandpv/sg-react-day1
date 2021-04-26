@@ -7,8 +7,8 @@ class App extends Component {
     counter: 0,
   };
 
-  increment = () => {
-    this.setState({ counter: this.state.counter + 1 });
+  increment = (f) => {
+    this.setState({ counter: this.state.counter + f });
   };
 
   render() {
@@ -20,10 +20,8 @@ class App extends Component {
           message='Good evening'
           city='Bengaluru'
           counter={this.state.counter}
+          inc={this.increment}
         />
-
-        <hr />
-        <button onClick={this.increment}>Increment</button>
       </>
     );
   }
