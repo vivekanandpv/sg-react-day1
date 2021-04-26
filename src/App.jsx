@@ -8,7 +8,7 @@ class App extends Component {
       <>
         <h3>App Component</h3>
         <hr />
-        <Sample message='Good evening' />
+        <Sample message='Good evening' city='Bengaluru' />
       </>
     );
   }
