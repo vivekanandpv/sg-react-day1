@@ -4,20 +4,22 @@ import Demo from './components/Demo';
 
 class App extends Component {
   state = {
-    country: 'India',
-    year: 2020,
-    showData: true,
-    defaultMessage: 'No data available',
-    list: [1, 2, 3, 4],
+    counter: 0,
+  };
+
+  clickHandler = () => {
+    this.setState({ counter: this.state.counter + 1 });
+    console.log(this.state.counter);
   };
 
   render() {
-    const jsxArray = this.state.list.map((n) => {
-      const m = n * n;
-      return <p>Square is: {m}</p>;
-    });
-
-    return jsxArray;
+    return (
+      <>
+        <h3>Counter: {this.state.counter}</h3>
+        <hr />
+        <button onClick={this.clickHandler}>Click Here!</button>
+      </>
+    );
   }
 }
 
