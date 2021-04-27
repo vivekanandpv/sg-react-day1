@@ -1,36 +1,26 @@
-import React, { Component, PureComponent } from 'react';
-import Sample from './components/Sample.jsx';
-import Demo from './components/Demo';
+import React, { useState } from 'react';
+import Sample from './components/Sample';
 
-class App extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      counter: 0,
-      message: 'hi',
-      flag: true,
-      person: {
-        name: 'Vivek',
-        address: {
-          city: 'Haveri',
-        },
-      },
-    };
-  }
+const App = (props) => {
+  console.log('App is called');
 
-  setup = () => {
-    this.setState({ flag: !this.state.flag });
+  const [counter, setCounter] = useState(0);
+
+  const increment = () => {
+    setCounter(counter + 1);
   };
 
-  render() {
-    return (
-      <>
-        <h1>Hello World</h1>
-        <button onClick={this.setup}>Increment</button>
-        {this.state.flag && <Sample />}
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <div className='container p-5'>
+        <h3>App Component: {counter}</h3>
+        <hr />
+        <button className='btn btn-info' onClick={increment}>
+          Increment
+        </button>
+      </div>
+    </>
+  );
+};
 
 export default App;
