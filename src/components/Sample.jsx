@@ -1,24 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
 
-const Sample = (props) => {
-  const [counter, setCounter] = useState(0);
-
-  const increment = () => {
-    setCounter((previousState) => {
-      console.log('previous counter', previousState, 'props', props);
-      return previousState + props.factor;
+class Sample extends Component {
+  state = { counter: 0 };
+  increment = () => {
+    this.setState((previousState, previousProps) => {
+      console.log(
+        'previous state',
+        previousState,
+        'previous props',
+        previousProps
+      );
+      return { counter: previousState.counter + previousProps.factor };
     });
   };
-
-  return (
-    <>
-      <h3>Sample Component {counter}</h3>
-      <hr />
-      <button className='btn btn-primary' onClick={increment}>
-        Click Here!
-      </button>
-    </>
-  );
-};
+  render() {
+    return (
+      <>
+        <h3>Counter: {this.state.counter}</h3>
+        <button className='btn btn-primary' onClick={this.increment}>
+          Increment
+        </button>
+      </>
+    );
+  }
+}
 
 export default Sample;
