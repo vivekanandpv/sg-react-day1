@@ -2,17 +2,20 @@ import React, { useState, useEffect } from 'react';
 import Sample from './components/Sample';
 
 const App = (props) => {
-  const [flag, setFlag] = useState(true);
+  const [factor, setFactor] = useState(1);
   return (
     <>
       <div className='container p-5'>
-        <h3>App Component</h3>
+        <h3>App Component: factor {factor}</h3>
         <hr />
-        <button className='btn btn-info mr-4' onClick={() => setFlag(!flag)}>
-          Toggle
+        <button
+          className='btn btn-primary'
+          onClick={() => setFactor(factor + 1)}
+        >
+          Increment Factor
         </button>
         <hr />
-        {flag && <Sample />}
+        <Sample factor={factor} />
       </div>
     </>
   );

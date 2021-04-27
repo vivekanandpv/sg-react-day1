@@ -1,21 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Sample = (props) => {
-  useEffect(() => {
-    console.log('useEffect : Mounting : Sample');
-    return () => {
-      console.log('useEffect : Unmounting : Sample');
-    };
-  }, []);
+  const [counter, setCounter] = useState(0);
+
+  const increment = () => {
+    setCounter((previousState) => {
+      console.log('previous counter', previousState, 'props', props);
+      return previousState + props.factor;
+    });
+  };
 
   return (
     <>
-      <h3>Sample Component {props.i}</h3>
+      <h3>Sample Component {counter}</h3>
       <hr />
-      <button
-        className='btn btn-primary'
-        onClick={() => props.foo('Good afternoon')}
-      >
+      <button className='btn btn-primary' onClick={increment}>
         Click Here!
       </button>
     </>
