@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Sample = (props) => {
+  useEffect(() => {
+    console.log('useEffect : Mounting : Sample');
+    return () => {
+      console.log('useEffect : Unmounting : Sample');
+    };
+  }, []);
+
   return (
     <>
       <h3>Sample Component {props.i}</h3>
